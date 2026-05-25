@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>个人简历 - 保研自我介绍</title>
+<title>郭峰的个人网页</title>
 <style>
 /* ===== Reset & Base ===== */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -85,7 +85,7 @@ section {
 }
 .hero-content { max-width: 700px; }
 .hero-avatar {
-  width: 160px; height: 160px; border-radius: 50%; margin: 0 auto 1.5rem;
+  width: 180px; height: 180px; border-radius: 50%; margin: 0 auto 1.5rem;
   border: 3px solid #00d4ff; padding: 4px;
   background: linear-gradient(135deg, #00d4ff, #7b2ff7);
   overflow: hidden;
@@ -175,7 +175,7 @@ section {
 .timeline-item p { color: #aaa; font-size: 0.9rem; }
 
 /* ===== Projects ===== */
-.projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.8rem; }
+.projects-grid { display: grid; grid-template-columns: 1fr; gap: 1.8rem; }
 .project-card {
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -188,6 +188,10 @@ section {
   transform: translateY(-6px) rotateX(2deg);
   box-shadow: 0 20px 50px rgba(0, 212, 255, 0.15);
   border-color: rgba(0, 212, 255, 0.3);
+}
+.project-card.featured {
+  display: grid; grid-template-columns: minmax(280px, 0.9fr) minmax(320px, 1.1fr);
+  align-items: stretch;
 }
 .project-media {
   position: relative; width: 100%; padding-top: 56.25%; overflow: hidden;
@@ -213,6 +217,7 @@ section {
   border-left: 18px solid #fff; border-top: 12px solid transparent;
   border-bottom: 12px solid transparent; margin-left: 4px;
 }
+.project-card.featured .project-media { height: 100%; min-height: 260px; padding-top: 0; }
 .project-body { padding: 1.5rem; }
 .project-body h3 { font-size: 1.15rem; color: #fff; margin-bottom: 0.5rem; }
 .project-body p { color: #aaa; font-size: 0.9rem; margin-bottom: 1rem; }
@@ -279,6 +284,38 @@ section {
 #radar-canvas { max-width: 360px; width: 100%; }
 
 /* ===== Student Work ===== */
+.student-work-list { display: grid; grid-template-columns: 1fr; gap: 2rem; }
+.club-card h3 {
+  font-size: 1.15rem; color: #fff; margin-bottom: 0.4rem;
+  display: flex; align-items: center; gap: 0.5rem;
+}
+.club-card .club-meta { color: #00d4ff; font-size: 0.85rem; margin-bottom: 1rem; }
+.club-card > p { color: #aaa; font-size: 0.92rem; margin-bottom: 1.4rem; }
+.activity-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.activity-card {
+  overflow: hidden; border-radius: 12px;
+  background: rgba(255,255,255,0.035);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.activity-photo {
+  position: relative; width: 100%; padding-top: 62%;
+  background: linear-gradient(135deg, #0d1b2a, #1b2838);
+  overflow: hidden;
+}
+.activity-photo img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; transition: transform 0.4s;
+}
+.activity-photo span {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  color: #00d4ff; font-size: 0.9rem;
+  background: linear-gradient(135deg, rgba(0,212,255,0.08), rgba(123,47,247,0.12));
+}
+.activity-card:hover .activity-photo img { transform: scale(1.05); }
+.activity-body { padding: 1rem; }
+.activity-body h4 { color: #fff; font-size: 0.95rem; margin-bottom: 0.35rem; }
+.activity-body p { color: #aaa; font-size: 0.85rem; }
 .student-work-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
 .sw-card .sw-icon {
   width: 48px; height: 48px; border-radius: 12px; margin-bottom: 1rem;
@@ -292,7 +329,7 @@ section {
 /* ===== Summary ===== */
 .summary-content {
   max-width: 800px; margin: 0 auto;
-  display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;
+  display: grid; grid-template-columns: 1fr; gap: 2rem;
 }
 .summary-block h3 {
   font-size: 1.05rem; color: #fff; margin-bottom: 0.8rem;
@@ -310,6 +347,27 @@ section {
   background: linear-gradient(135deg, #00d4ff, #7b2ff7);
   transform: translateY(-50%);
 }
+
+/* ===== Contact ===== */
+.contact-grid {
+  max-width: 900px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(4, minmax(160px, 1fr)); gap: 1rem;
+}
+.contact-card {
+  display: block; color: inherit; text-decoration: none;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px; padding: 1.2rem;
+  transition: transform 0.3s, border-color 0.3s, background 0.3s;
+}
+.contact-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(0, 212, 255, 0.35);
+  background: rgba(0, 212, 255, 0.07);
+}
+.contact-icon { font-size: 1.35rem; margin-bottom: 0.5rem; }
+.contact-label { color: #888; font-size: 0.8rem; margin-bottom: 0.25rem; }
+.contact-value { color: #fff; font-size: 0.92rem; word-break: break-all; }
 
 /* ===== Footer ===== */
 footer {
@@ -341,9 +399,14 @@ footer {
   }
   .nav-toggle { display: block; }
   .hero-name { font-size: 2rem; }
+  .hero-avatar { width: 168px; height: 168px; }
   .summary-content { grid-template-columns: 1fr; }
   section { padding: 4rem 1.2rem 2rem; }
   .projects-grid { grid-template-columns: 1fr; }
+  .project-card.featured { grid-template-columns: 1fr; }
+  .project-card.featured .project-media { min-height: auto; padding-top: 56.25%; }
+  .activity-grid { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -355,17 +418,18 @@ footer {
 <!-- Navbar -->
 <nav class="navbar">
   <div class="nav-inner">
-    <div class="logo">PORTFOLIO</div>
+    <div class="logo">Welcome</div>
     <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
       <span></span><span></span><span></span>
     </button>
     <ul id="navMenu">
-      <li><a href="#hero" class="active">首页</a></li>
+      <li><a href="#hero" class="active">个人信息</a></li>
       <li><a href="#education">教育背景</a></li>
       <li><a href="#projects">项目经历</a></li>
       <li><a href="#skills">技能特长</a></li>
       <li><a href="#student-work">学生工作</a></li>
-      <li><a href="#summary">个人总结</a></li>
+      <li><a href="#summary">未来规划</a></li>
+      <li><a href="#contact">联系方式</a></li>
     </ul>
   </div>
 </nav>
@@ -375,19 +439,19 @@ footer {
   <div class="hero-content fade-in">
     <div class="hero-avatar">
       <!-- 替换为你的照片 -->
-      <img src="https://via.placeholder.com/200x200/0a0a1a/00d4ff?text=Photo" alt="个人照片">
+      <img src="guofeng.jpg" alt="个人照片">
     </div>
-    <h1 class="hero-name">你的姓名</h1>
-    <p class="hero-subtitle">x'n'j大学 · XX学院 · XX专业 · 20XX级本科生</p>
+    <h1 class="hero-name">郭峰</h1>
+    <p class="hero-subtitle">西南交通大学 · 信息科学与技术学院 · 通信工程专业 · 2023级本科生</p>
     <div id="typewriter"></div>
     <div class="hero-tags">
-      <span>保研er</span>
-      <span>XX方向</span>
-      <span>竞赛达人</span>
-      <span>开源爱好者</span>
+      <span>RCer</span>
+      <span>视觉感知</span>
+      <span>嵌入式开发</span>
+      <span>机器人控制</span>
     </div>
     <div class="hero-links">
-      <a href="mailto:your@email.com" class="primary">联系我</a>
+      <a href="#contact" class="primary">联系我</a>
       <a href="#projects" class="secondary">查看项目</a>
     </div>
   </div>
@@ -398,12 +462,12 @@ footer {
   <h2 class="section-title fade-in">教育背景</h2>
   <div class="timeline">
     <div class="timeline-item fade-in-left">
-      <h3>XX大学 · XX学院</h3>
-      <div class="time">20XX.09 - 20XX.06（预计）</div>
+      <h3>西南交通大学(211工程、双一流学科高校)</h3>
+      <div class="time">2023.09 - 今</div>
       <p>
-        专业：XX工程 / XX科学<br>
-        GPA：<strong>3.8</strong> / 4.0 &nbsp;|&nbsp; 排名：<strong>5</strong> / 120<br>
-        主修课程：数据结构与算法、操作系统、计算机网络、数据库系统、机器学习、深度学习
+        专业：通信工程<br>
+        综合成绩：<strong>89.03</strong> / 100 &nbsp;|&nbsp; GPA：<strong>3.66</strong> / 4.0 &nbsp;|&nbsp; 排名：17 / 137 (<strong>12%</strong>)<br>
+        主修课程：计算机程序设计（理论95|实验93）嵌入式系统设计（理论87|实验93）模拟电子技术（理论86|实验100）微机与接口技术（92）DSP原理与应用（96）大学物理（99）信息论与编码（93）
       </p>
     </div>
     <div class="timeline-item fade-in-left">
@@ -420,73 +484,101 @@ footer {
   <div class="projects-grid">
 
     <!-- Project 1 -->
-    <div class="project-card fade-in">
+    <div class="project-card featured fade-in">
       <div class="project-media">
-        <!-- 替换为项目封面图 -->
-        <img src="https://via.placeholder.com/640x360/0d1b2a/00d4ff?text=Project+1" alt="项目1">
+        <video controls preload="metadata">
+          <source src="project1-demo.mp4" type="video/mp4">
+          你的浏览器不支持视频播放。
+        </video>
       </div>
       <div class="project-body">
-        <h3>智能XX系统</h3>
-        <p>基于深度学习的XX系统，实现了XX功能。采用XX架构，集成了XX算法，在XX数据集上达到了XX%的准确率。</p>
+        <h3>项目一：智能视觉感知系统</h3>
+        <p>围绕视觉识别与目标检测任务进行算法验证和工程部署，重点展示数据处理、模型训练、推理优化和实际场景测试过程。视频可放置系统运行演示、识别效果对比或最终成果展示。</p>
         <div class="project-tags">
-          <span>Python</span><span>PyTorch</span><span>Flask</span><span>Docker</span>
-        </div>
-        <div class="project-gallery">
-          <!-- 替换为项目截图 -->
-          <img src="https://via.placeholder.com/240x160/0d1b2a/00d4ff?text=S1" alt="截图1">
-          <img src="https://via.placeholder.com/240x160/0d1b2a/7b2ff7?text=S2" alt="截图2">
-          <img src="https://via.placeholder.com/240x160/0d1b2a/00d4ff?text=S3" alt="截图3">
+          <span>Python</span><span>PyTorch</span><span>OpenCV</span><span>模型部署</span>
         </div>
         <div class="project-links">
-          <a href="#">GitHub</a>
-          <a href="#">演示视频</a>
-          <a href="#">论文</a>
+          <a href="project1-demo.mp4">查看视频</a>
         </div>
       </div>
     </div>
 
     <!-- Project 2 -->
-    <div class="project-card fade-in">
+    <div class="project-card featured fade-in">
       <div class="project-media">
-        <!-- 替换为视频：将 img 换成 video 标签 -->
-        <!-- <video src="project2-demo.mp4" muted loop playsinline></video> -->
-        <img src="https://via.placeholder.com/640x360/1b2838/7b2ff7?text=Project+2" alt="项目2">
-        <div class="play-btn" data-video="project2-demo.mp4"></div>
+        <video controls preload="metadata">
+          <source src="project2-demo.mp4" type="video/mp4">
+          你的浏览器不支持视频播放。
+        </video>
       </div>
       <div class="project-body">
-        <h3>XX数据分析平台</h3>
-        <p>全栈Web应用，支持XX数据的采集、清洗、可视化分析。前端使用Vue.js，后端使用Spring Boot，数据库采用MySQL + Redis。</p>
+        <h3>项目二：机器人控制与调试平台</h3>
+        <p>面向机器人控制链路，完成运动控制、传感器数据读取、上位机调试和现场联调。视频可展示机器人动作响应、控制策略效果以及调试界面。</p>
         <div class="project-tags">
-          <span>Vue.js</span><span>Spring Boot</span><span>MySQL</span><span>Redis</span>
-        </div>
-        <div class="project-gallery">
-          <img src="https://via.placeholder.com/240x160/1b2838/7b2ff7?text=S1" alt="截图1">
-          <img src="https://via.placeholder.com/240x160/1b2838/00d4ff?text=S2" alt="截图2">
+          <span>C/C++</span><span>ROS</span><span>运动控制</span><span>传感器融合</span>
         </div>
         <div class="project-links">
-          <a href="#">GitHub</a>
-          <a href="#">在线演示</a>
+          <a href="project2-demo.mp4">查看视频</a>
         </div>
       </div>
     </div>
 
     <!-- Project 3 -->
-    <div class="project-card fade-in">
+    <div class="project-card featured fade-in">
       <div class="project-media">
-        <img src="https://via.placeholder.com/640x360/0d1b2a/00d4ff?text=Project+3" alt="项目3">
+        <video controls preload="metadata">
+          <source src="project3-demo.mp4" type="video/mp4">
+          你的浏览器不支持视频播放。
+        </video>
       </div>
       <div class="project-body">
-        <h3>XX嵌入式系统</h3>
-        <p>基于STM32的XX系统设计，实现了XX功能。包含硬件电路设计、嵌入式软件开发、上位机通信等完整链路。</p>
+        <h3>项目三：嵌入式功能模块设计</h3>
+        <p>基于嵌入式开发板完成外设驱动、通信协议、数据采集与功能验证，强调从硬件连接到软件逻辑的完整实现。视频可展示实物运行和关键功能测试。</p>
         <div class="project-tags">
-          <span>C/C++</span><span>STM32</span><span>FreeRTOS</span><span>PCB设计</span>
-        </div>
-        <div class="project-gallery">
-          <img src="https://via.placeholder.com/240x160/0d1b2a/00d4ff?text=PCB" alt="PCB">
-          <img src="https://via.placeholder.com/240x160/0d1b2a/7b2ff7?text=实物" alt="实物">
+          <span>STM32</span><span>嵌入式 C</span><span>串口通信</span><span>硬件调试</span>
         </div>
         <div class="project-links">
-          <a href="#">GitHub</a>
+          <a href="project3-demo.mp4">查看视频</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 4 -->
+    <div class="project-card featured fade-in">
+      <div class="project-media">
+        <video controls preload="metadata">
+          <source src="project4-demo.mp4" type="video/mp4">
+          你的浏览器不支持视频播放。
+        </video>
+      </div>
+      <div class="project-body">
+        <h3>项目四：数据分析与可视化工具</h3>
+        <p>完成数据采集、清洗、统计分析与结果可视化流程，用图表和交互界面呈现关键指标。视频可展示数据导入、分析过程和最终可视化结果。</p>
+        <div class="project-tags">
+          <span>Python</span><span>数据处理</span><span>可视化</span><span>Web 展示</span>
+        </div>
+        <div class="project-links">
+          <a href="project4-demo.mp4">查看视频</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 5 -->
+    <div class="project-card featured fade-in">
+      <div class="project-media">
+        <video controls preload="metadata">
+          <source src="project5-demo.mp4" type="video/mp4">
+          你的浏览器不支持视频播放。
+        </video>
+      </div>
+      <div class="project-body">
+        <h3>项目五：课程设计与综合实践</h3>
+        <p>整合专业课程中的算法、通信、硬件或软件工程内容，完成需求分析、方案设计、实现测试和成果汇报。视频可展示设计结果、运行流程和答辩演示片段。</p>
+        <div class="project-tags">
+          <span>课程设计</span><span>系统实现</span><span>实验验证</span><span>成果展示</span>
+        </div>
+        <div class="project-links">
+          <a href="project5-demo.mp4">查看视频</a>
         </div>
       </div>
     </div>
@@ -568,51 +660,113 @@ footer {
 <!-- Student Work -->
 <section id="student-work">
   <h2 class="section-title fade-in">学生工作</h2>
-  <div class="student-work-grid">
-    <div class="sw-card glass-card fade-in-left">
-      <div class="sw-icon">&#127947;</div>
-      <h3>XX学生会 · 部长</h3>
-      <div class="sw-time">20XX.09 - 20XX.06</div>
-      <p>负责XX部门的日常管理与活动策划，组织了XX等大型活动，参与人数达XX人。提升了团队协作与项目管理能力。</p>
+  <div class="student-work-list">
+    <div class="club-card glass-card fade-in-left">
+      <h3><span>&#129302;</span> 智能基座社团</h3>
+      <div class="club-meta">技术实践 · 社团活动 · 团队协作</div>
+      <p>围绕人工智能、嵌入式与机器人方向开展技术交流和实践活动，参与社团项目推进、成员协作与活动组织。</p>
+      <div class="activity-grid">
+        <div class="activity-card">
+          <div class="activity-photo"><span>活动照片 1</span></div>
+          <div class="activity-body">
+            <h4>技术分享活动</h4>
+            <p>组织或参与技术主题分享，围绕视觉感知、嵌入式开发等方向交流学习经验。</p>
+          </div>
+        </div>
+        <div class="activity-card">
+          <div class="activity-photo"><span>活动照片 2</span></div>
+          <div class="activity-body">
+            <h4>项目实践活动</h4>
+            <p>参与社团项目实践，完成方案讨论、模块调试和成果展示等工作。</p>
+          </div>
+        </div>
+        <div class="activity-card">
+          <div class="activity-photo"><span>活动照片 3</span></div>
+          <div class="activity-body">
+            <h4>竞赛备赛活动</h4>
+            <p>配合团队开展竞赛训练与资料整理，在实践中提升工程能力和协作效率。</p>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="sw-card glass-card fade-in">
-      <div class="sw-icon">&#128218;</div>
-      <h3>XX社团 · 副社长</h3>
-      <div class="sw-time">20XX.09 - 20XX.06</div>
-      <p>参与社团的技术培训与项目指导，带领团队完成XX项目。社团获评"优秀社团"称号。</p>
-    </div>
-    <div class="sw-card glass-card fade-in-right">
-      <div class="sw-icon">&#127891;</div>
-      <h3>XX班 · 班长</h3>
-      <div class="sw-time">20XX.09 - 至今</div>
-      <p>协调班级事务，组织班会与团日活动。班级获评"先进班集体"，个人获评"优秀学生干部"。</p>
+
+    <div class="club-card glass-card fade-in-right">
+      <h3><span>&#127891;</span> 学风领航中心</h3>
+      <div class="club-meta">学业帮扶 · 学风建设 · 活动策划</div>
+      <p>参与学风建设与学习支持工作，协助开展经验分享、学习辅导和校园学业氛围营造相关活动。</p>
+      <div class="activity-grid">
+        <div class="activity-card">
+          <div class="activity-photo"><span>活动照片 1</span></div>
+          <div class="activity-body">
+            <h4>学习经验分享</h4>
+            <p>围绕课程学习、竞赛准备和时间管理等内容开展交流，帮助同学明确学习方法。</p>
+          </div>
+        </div>
+        <div class="activity-card">
+          <div class="activity-photo"><span>活动照片 2</span></div>
+          <div class="activity-body">
+            <h4>学业辅导活动</h4>
+            <p>参与课程答疑和学习资料整理，协助同学解决阶段性学习问题。</p>
+          </div>
+        </div>
+        <div class="activity-card">
+          <div class="activity-photo"><span>活动照片 3</span></div>
+          <div class="activity-body">
+            <h4>学风建设活动</h4>
+            <p>协助策划学风主题活动，推动形成更积极、自律、互助的学习氛围。</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- Summary -->
 <section id="summary">
-  <h2 class="section-title fade-in">个人总结</h2>
+  <h2 class="section-title fade-in">未来规划</h2>
   <div class="summary-content">
-    <div class="summary-block glass-card fade-in-left">
-      <h3>&#128161; 自我评价</h3>
-      <p>热爱技术，具备扎实的计算机基础和较强的工程实践能力。善于团队协作，有良好的沟通表达能力。对XX方向充满热情，希望在研究生阶段深入探索。</p>
-    </div>
-    <div class="summary-block glass-card fade-in-right">
+    <div class="summary-block glass-card fade-in">
       <h3>&#128640; 未来规划</h3>
       <ul>
-        <li>深入研究XX方向的前沿技术</li>
-        <li>争取发表高水平学术论文</li>
-        <li>参与开源项目，提升工程能力</li>
-        <li>探索学术与产业的结合点</li>
+        <li>继续夯实通信工程、嵌入式开发与人工智能相关基础，形成更完整的知识体系。</li>
+        <li>围绕视觉感知、机器人控制和智能系统方向持续推进项目实践。</li>
+        <li>积极参与竞赛、科研训练和工程项目，在真实问题中提升系统设计与调试能力。</li>
+        <li>保持长期学习和复盘习惯，逐步明确未来深造与职业发展方向。</li>
       </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+  <h2 class="section-title fade-in">联系方式</h2>
+  <div class="contact-grid fade-in">
+    <a class="contact-card" href="mailto:guo_feng2023@163.com">
+      <div class="contact-icon">&#9993;</div>
+      <div class="contact-label">邮箱</div>
+      <div class="contact-value">guo_feng2023@163.com</div>
+    </a>
+    <div class="contact-card">
+      <div class="contact-icon">QQ</div>
+      <div class="contact-label">QQ</div>
+      <div class="contact-value">待补充</div>
+    </div>
+    <div class="contact-card">
+      <div class="contact-icon">微</div>
+      <div class="contact-label">微信</div>
+      <div class="contact-value">待补充</div>
+    </div>
+    <div class="contact-card">
+      <div class="contact-icon">&#9742;</div>
+      <div class="contact-label">手机</div>
+      <div class="contact-value">待补充</div>
     </div>
   </div>
 </section>
 
 <!-- Footer -->
 <footer>
-  <p>&copy; 20XX 你的姓名 | 用热爱书写代码，用技术改变世界</p>
+  <p>&copy; 2026 郭峰 | 用热爱书写代码，用技术连接未来</p>
 </footer>
 
 <!-- Lightbox -->
@@ -691,9 +845,9 @@ footer {
 (function() {
   const texts = [
     '热爱技术，追求卓越 ✨',
-    '深耕XX方向，探索未知前沿',
-    '用代码构建智能，用创新解决问题',
-    '期待在研究生阶段创造更多可能'
+    '深耕感知算法，痴迷机器人研发',
+    '多模态大模型，开发智能系统',
+    '知行合一，以技术奔赴热爱'
   ];
   const el = document.getElementById('typewriter');
   let textIdx = 0, charIdx = 0, deleting = false;
