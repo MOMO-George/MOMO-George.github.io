@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>郭峰的个人网页</title>
+<title>郭峰的个人主页</title>
 <style>
 /* ===== Reset & Base ===== */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -194,16 +194,18 @@ section {
   align-items: stretch;
 }
 .project-media {
-  position: relative; width: 100%; padding-top: 56.25%; overflow: hidden;
-  background: linear-gradient(135deg, #0d1b2a, #1b2838);
+  position: relative; width: 100%; min-height: 280px; overflow: hidden;
+  background: radial-gradient(circle at 20% 15%, rgba(0, 212, 255, 0.12), transparent 32%),
+              linear-gradient(135deg, #0d1b2a, #151827);
+  display: flex; align-items: center; justify-content: center;
 }
 .project-media img,
 .project-media video {
-  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-  object-fit: cover; transition: transform 0.5s;
+  width: 100%; height: 100%;
+  object-fit: contain; transition: transform 0.5s;
 }
 .project-card:hover .project-media img,
-.project-card:hover .project-media video { transform: scale(1.05); }
+.project-card:hover .project-media video { filter: saturate(1.08) brightness(1.04); }
 .project-media .play-btn {
   position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
   width: 60px; height: 60px; border-radius: 50%;
@@ -217,7 +219,21 @@ section {
   border-left: 18px solid #fff; border-top: 12px solid transparent;
   border-bottom: 12px solid transparent; margin-left: 4px;
 }
-.project-card.featured .project-media { height: 100%; min-height: 260px; padding-top: 0; }
+.project-card.featured .project-media { height: 100%; min-height: 320px; padding: 1rem; }
+.project-card.featured .project-media > img,
+.project-card.featured .project-media > video { max-height: 520px; }
+.media-pair {
+  width: 100%; height: 100%;
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.8rem;
+}
+.media-frame {
+  min-height: 250px; border-radius: 12px; overflow: hidden;
+  background: rgba(5, 10, 24, 0.78);
+  border: 1px solid rgba(255,255,255,0.08);
+  display: flex; align-items: center; justify-content: center;
+}
+.media-frame img,
+.media-frame video { width: 100%; height: 100%; object-fit: contain; }
 .project-body { padding: 1.5rem; }
 .project-body h3 { font-size: 1.15rem; color: #fff; margin-bottom: 0.5rem; }
 .project-body p { color: #aaa; font-size: 0.9rem; margin-bottom: 1rem; }
@@ -240,11 +256,11 @@ section {
   scrollbar-width: thin; scrollbar-color: #333 transparent;
 }
 .project-gallery img {
-  width: 120px; height: 80px; object-fit: cover; border-radius: 8px;
+  width: 120px; height: 80px; object-fit: contain; border-radius: 8px;
   cursor: pointer; border: 2px solid transparent; transition: border-color 0.3s, transform 0.3s;
   position: static; padding-top: 0;
 }
-.project-gallery img:hover { border-color: #00d4ff; transform: scale(1.05); }
+.project-gallery img:hover { border-color: #00d4ff; }
 
 /* Lightbox */
 .lightbox {
@@ -258,8 +274,19 @@ section {
   color: #fff; cursor: pointer; background: none; border: none;
 }
 
-/* ===== Skills ===== */
-.skills-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+.skills-overview {
+  margin: -1.5rem auto 2rem; max-width: 980px;
+  display: grid; grid-template-columns: 1.25fr 1fr; gap: 1rem;
+}
+.skills-lead { color: #b7bdc9; font-size: 0.94rem; }
+.skills-lead strong { color: #00d4ff; }
+.skill-chip-grid { display: flex; flex-wrap: wrap; gap: 0.55rem; align-content: flex-start; }
+.skill-chip-grid span {
+  padding: 0.35rem 0.75rem; border-radius: 999px; font-size: 0.8rem;
+  color: #d9e8ff; background: rgba(0, 212, 255, 0.08);
+  border: 1px solid rgba(0, 212, 255, 0.22);
+}
+.skills-container { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }
 .skill-category h3 {
   font-size: 1rem; color: #fff; margin-bottom: 1rem;
   display: flex; align-items: center; gap: 0.5rem;
@@ -280,8 +307,11 @@ section {
 }
 
 /* Radar Chart */
-.radar-wrapper { display: flex; justify-content: center; margin-top: 2rem; }
-#radar-canvas { max-width: 360px; width: 100%; }
+.radar-panel { max-width: 760px; margin: 2rem auto 0; text-align: center; }
+.radar-panel h3 { color: #fff; font-size: 1rem; margin-bottom: 0.35rem; }
+.radar-panel p { color: #9ea6b6; font-size: 0.86rem; margin-bottom: 1rem; }
+.radar-wrapper { display: flex; justify-content: center; }
+#radar-canvas { max-width: 360px; width: 100%; height: auto; }
 
 /* ===== Student Work ===== */
 .student-work-list { display: grid; grid-template-columns: 1fr; gap: 2rem; }
@@ -304,7 +334,7 @@ section {
 }
 .activity-photo img {
   position: absolute; inset: 0; width: 100%; height: 100%;
-  object-fit: cover; transition: transform 0.4s;
+  object-fit: contain; transition: transform 0.4s;
 }
 .activity-photo span {
   position: absolute; inset: 0;
@@ -312,7 +342,7 @@ section {
   color: #00d4ff; font-size: 0.9rem;
   background: linear-gradient(135deg, rgba(0,212,255,0.08), rgba(123,47,247,0.12));
 }
-.activity-card:hover .activity-photo img { transform: scale(1.05); }
+.activity-card:hover .activity-photo img { filter: saturate(1.08) brightness(1.04); }
 .activity-body { padding: 1rem; }
 .activity-body h4 { color: #fff; font-size: 0.95rem; margin-bottom: 0.35rem; }
 .activity-body p { color: #aaa; font-size: 0.85rem; }
@@ -328,14 +358,24 @@ section {
 
 /* ===== Summary ===== */
 .summary-content {
-  max-width: 800px; margin: 0 auto;
+  max-width: 900px; margin: 0 auto;
   display: grid; grid-template-columns: 1fr; gap: 2rem;
 }
 .summary-block h3 {
   font-size: 1.05rem; color: #fff; margin-bottom: 0.8rem;
   display: flex; align-items: center; gap: 0.5rem;
 }
-.summary-block p { color: #aaa; font-size: 0.9rem; }
+.summary-block p { color: #aaa; font-size: 0.92rem; margin-bottom: 1rem; }
+.summary-focus {
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem; margin-top: 1.2rem;
+}
+.summary-focus div {
+  padding: 1rem; border-radius: 12px; background: rgba(255,255,255,0.035);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.summary-focus h4 { color: #fff; font-size: 0.95rem; margin-bottom: 0.35rem; }
+.summary-focus p { margin: 0; color: #9fa8b8; font-size: 0.84rem; }
 .summary-block ul { list-style: none; }
 .summary-block ul li {
   color: #aaa; font-size: 0.9rem; padding: 0.3rem 0;
@@ -404,7 +444,10 @@ footer {
   section { padding: 4rem 1.2rem 2rem; }
   .projects-grid { grid-template-columns: 1fr; }
   .project-card.featured { grid-template-columns: 1fr; }
-  .project-card.featured .project-media { min-height: auto; padding-top: 56.25%; }
+  .project-card.featured .project-media { min-height: 240px; padding: 0.8rem; }
+  .media-pair { grid-template-columns: 1fr; }
+  .media-frame { min-height: 220px; }
+  .skills-overview, .skills-container, .summary-focus { grid-template-columns: 1fr; }
   .activity-grid { grid-template-columns: 1fr; }
   .contact-grid { grid-template-columns: 1fr; }
 }
@@ -534,20 +577,26 @@ footer {
     <!-- Project 3 -->
     <div class="project-card featured fade-in">
       <div class="project-media">
-        <video controls preload="metadata">
-          <source src="video/机械臂自动分拣系统演示视频.mp4" type="video/mp4"
-        </video>
-        <video controls preload="metadata">
-          <source src="video/K230电池检测.mp4" type="video/mp4"
-        </video>
+        <div class="media-pair">
+          <div class="media-frame">
+            <video controls preload="metadata">
+              <source src="video/机械臂自动分拣系统演示视频.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="media-frame">
+            <video controls preload="metadata">
+              <source src="video/K230电池检测.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
       </div>
       <div class="project-body">
         <h3>第八届全国大学生嵌入式芯片与系统设计竞赛</h3>
         <p>
-          <strong>项目概要<strong>：针对传统人工分拣电池效率低、人力成本高的问题，开发<strong>基于STＭ32的六轴机械臂电池自动分拣系统</strong>，实现废旧电池的自动化、高精度分拣，助力环保产业升级。<br>
-          <strong>核心贡献<strong>：<strong>负责电池的检测、精准定位与路径规划</strong>。采用K230开发板(6TOPS算力)，通过模板匹配识别电池类型，识别准确率达92%，推理速度达21FPS；结合平滑滤波算法进行动态追踪和定位，
+          <strong>项目概要</strong>：针对传统人工分拣电池效率低、人力成本高的问题，开发<strong>基于STM32的六轴机械臂电池自动分拣系统</strong>，实现废旧电池的自动化、高精度分拣，助力环保产业升级。<br>
+          <strong>核心贡献</strong>：<strong>负责电池的检测、精准定位与路径规划</strong>。采用K230开发板(6TOPS算力)，通过模板匹配识别电池类型，识别准确率达92%，推理速度达21FPS；结合平滑滤波算法进行动态追踪和定位，
           位置预测误差±1cm；通过仿射变换、手眼标定完成机械臂坐标对齐，坐标转换综合误差≤1cm；基于STM32H723VGT6单片机，运用运动学、逆运动学结算及PID控制算法，驱动机械臂完成分拣动作，平均响应时间100ms，抓取成功率达90%。<br>
-          <strong>项目结果<strong>：设计的六轴机械臂能自主识别、定位、分类分拣全流程自动化，参加嵌赛获<strong>西南赛区二等奖</strong>。
+          <strong>项目结果</strong>：设计的六轴机械臂能自主识别、定位、分类分拣全流程自动化，参加嵌赛获<strong>西南赛区二等奖</strong>。
         </p>
         <div class="project-tags">
           <span>省级二等奖</span><span>嵌入式设计</span><span>STM32H7</span><span>四轴机械臂</span>
@@ -558,8 +607,14 @@ footer {
     <!-- Project 4 -->
     <div class="project-card featured fade-in">
       <div class="project-media">
-        <img src="image/项目四1.png" alt="项目四1">
-        <img src="image/项目四2.png" alt="项目四2">
+        <div class="media-pair">
+          <div class="media-frame">
+            <img src="image/项目四1.png" alt="项目四1">
+          </div>
+          <div class="media-frame">
+            <img src="image/项目四2.png" alt="项目四2">
+          </div>
+        </div>
       </div>
       <div class="project-body">
         <h3>基于高温超导的灵敏接收机</h3>
@@ -571,7 +626,7 @@ footer {
           <strong> 相关成果支撑</strong>：<strong>校级SRTP科创项目</strong>并顺利结项。
         </p>
         <div class="project-tags">
-          <span>校级SRTP项目</span><span></span><span>视位协同一体化</span><span>四足机器人</span>
+          <span>校级SRTP项目</span><span>高温超导</span><span>HFSS仿真</span><span>射频滤波器</span><span>PCB设计</span>
         </div>
       </div>
     </div>
@@ -582,14 +637,24 @@ footer {
 <!-- Skills -->
 <section id="skills">
   <h2 class="section-title fade-in">技能特长</h2>
+  <div class="skills-overview fade-in">
+    <div class="skills-lead glass-card">
+      <p>
+        以机器人与智能系统为主线，能力结构覆盖<strong>感知算法、嵌入式控制、ROS系统集成、工程调试与竞赛实践</strong>。能够从需求拆解、方案设计、算法部署到整机联调参与完整项目闭环，也具备持续学习新工具和快速落地原型的能力。
+      </p>
+    </div>
+    <div class="skill-chip-grid glass-card">
+      <span>ROS / Linux</span>
+      <span>YOLO / 视觉感知</span>
+      <span>STM32 / 外设驱动</span>
+      <span>SLAM / 点云处理</span>
+      <span>SolidWorks / PCB</span>
+      <span>计算机二级证书</span>
+      <span>英语四六级证书</span>
+    </div>
+  </div>
   <div class="skills-container">
     <div class="skill-category glass-card fade-in-left">
-      <p>
-        <strong>机器人与系统开发</strong>：精通ROS架构与通信机制；熟练各种 Linux系统操作命令，掌握C/C++、Python、Verilog编程开发，熟悉STM32（HAL库）及常见外设（UART/DMA/ADC/定时器等）的驱动与开发。
-        <strong>软件工具与仿真设计</strong>：熟练使用VSCode、Keil5、CLion、PyCharm等编程开发环境；熟练Gazebo与Matlab机器人算法仿真；掌握Solidworks三维建模、Altium Designer、嘉立创EDA等软件。
-        <strong>语言与证书</strong>：计算机二级（C语言）证书、CCF CSP认证（180）、CET-6（505）、CET-4（534）
-      </p>
-
       <h3><span class="icon">&#128187;</span> 编程语言</h3>
       <div class="skill-bar">
         <div class="skill-header"><span>Python</span><span class="pct">90%</span></div>
@@ -651,8 +716,12 @@ footer {
   </div>
 
   <!-- Radar Chart -->
-  <div class="radar-wrapper fade-in">
-    <canvas id="radar-canvas" width="360" height="360"></canvas>
+  <div class="radar-panel glass-card fade-in">
+    <h3>综合能力画像</h3>
+    <p>六边形图用于展示项目中常用的综合能力侧重，和上方进度条形成互补。</p>
+    <div class="radar-wrapper">
+      <canvas id="radar-canvas" width="360" height="360"></canvas>
+    </div>
   </div>
 </section>
 
@@ -663,7 +732,7 @@ footer {
     <div class="club-card glass-card fade-in-left">
       <h3><span>&#129302;</span> 华为智能基座社团</h3>
       <div class="club-meta">技术实践 · 社团活动 · 团队协作</div>
-      <p>统筹负责智能基座整体运营与事务策划，主管技术部；牵头举办鲲鹏技术分享会、华鲲振宇OpenDay企业交流活动，策划组织信息学院迎新晚会、运动会等大型文体活动20余场。</p>
+      <p>作为社团骨干统筹智能基座日常运营与技术部建设，负责活动策划、资源协调、宣传组织和现场执行。围绕昇腾、鲲鹏、AI应用开发等方向推动技术交流，牵头或参与鲲鹏技术分享会、华鲲振宇OpenDay企业交流、信息学院迎新晚会、运动会等20余场活动，在跨部门协同和项目推进中积累了较强的组织沟通能力。</p>
       <div class="activity-grid">
         <div class="activity-card">
           <div class="activity-photo">
@@ -671,7 +740,7 @@ footer {
           </div>
           <div class="activity-body">
             <h4>"交客松"挑战赛</h4>
-            <p>三小时极限Vibe Coding，以技术会友，面向人工智能、软件开发与产品设计，围绕前端应用、视觉感知、嵌入式开发等方向交流学习经验。</p>
+            <p>组织三小时极限Vibe Coding，面向人工智能、软件开发与产品设计方向搭建交流场景，鼓励同学用快速原型表达创意。</p>
           </div>
         </div>
         <div class="activity-card">
@@ -680,7 +749,7 @@ footer {
           </div>
           <div class="activity-body">
             <h4>成都智能中心调研参观</h4>
-            <p>前往成都智能中心参与社团项目实践，实地考察体验算力推动高质量发展的成果。</p>
+            <p>参与成都智能中心调研，了解算力平台、行业应用与人才培养模式，并将参观收获转化为社团后续技术分享内容。</p>
           </div>
         </div>
         <div class="activity-card">
@@ -689,7 +758,7 @@ footer {
           </div>
           <div class="activity-body">
             <h4>华鲲振宇OpenDay活动</h4>
-            <p>前往成都华鲲振宇公司参与OpenDay活动，了解华为技术与前端科技的魅力。</p>
+            <p>参与企业OpenDay活动，对接企业工程师与学生团队，拓展同学对国产计算生态和工程实践场景的理解。</p>
           </div>
         </div>
       </div>
@@ -698,7 +767,7 @@ footer {
     <div class="club-card glass-card fade-in-right">
       <h3><span>&#127891;</span> 学风领航中心</h3>
       <div class="club-meta">学业帮扶 · 学风建设 · 活动策划</div>
-      <p>统筹策划信息学院英语四六级模拟考试、研究生招生模拟考试与竞赛科研讲座，参与人数超2000人次。</p>
+      <p>围绕学院学风建设与朋辈帮扶开展工作，参与策划英语四六级模拟考试、研究生招生模拟考试、竞赛科研经验分享与新生适应类活动，累计服务参与人数超2000人次。工作中注重把复杂流程拆解为可执行任务，提升活动的覆盖面、秩序感与同学参与体验。</p>
       <div class="activity-grid">
         <div class="activity-card">
           <div class="activity-photo">
@@ -706,7 +775,7 @@ footer {
           </div>
           <div class="activity-body">
             <h4>学代会发言</h4>
-            <p></p>
+            <p>结合学生代表身份参与学院事务讨论，围绕学业支持、成长发展与学生诉求表达观点。</p>
           </div>
         </div>
         <div class="activity-card">
@@ -715,7 +784,7 @@ footer {
           </div>
           <div class="activity-body">
             <h4>组织迎新会</h4>
-            <p></p>
+            <p>参与迎新活动组织与流程保障，帮助新生快速熟悉学院资源、学习节奏和校园生活。</p>
           </div>
         </div>
         <div class="activity-card">
@@ -724,7 +793,7 @@ footer {
           </div>
           <div class="activity-body">
             <h4>英语四六级模拟考</h4>
-            <p></p>
+            <p>协助完成考务安排、现场秩序维护与结果反馈，为同学提供接近真实考试节奏的训练环境。</p>
           </div>
         </div>
       </div>
@@ -738,12 +807,31 @@ footer {
   <div class="summary-content">
     <div class="summary-block glass-card fade-in">
       <h3>&#128640; 未来规划</h3>
+      <p>
+        未来我希望继续沿着“智能感知 + 机器人系统 + 嵌入式工程”的交叉方向深入积累，把课堂学习、科研训练和竞赛项目连接起来，逐步形成能够解决真实工程问题的系统能力。短期内会继续打磨视觉感知、SLAM定位、机械臂控制和嵌入式部署等方向的项目经验，提升从算法验证到硬件联调的完整闭环能力。
+      </p>
+      <p>
+        中长期目标是面向机器人、智能装备与多模态感知系统方向持续深造，保持对前沿技术的跟踪与复盘，在科研和工程实践中找到更稳定的个人方向。也希望继续参与学生组织和技术社区，用项目经验带动交流，在协作中提升表达、组织和技术落地能力。
+      </p>
       <ul>
-        <li></li>
-        <li>围绕视觉感知、机器人控制和智能系统方向持续推进项目实践。</li>
-        <li>积极参与竞赛、科研训练和工程项目，在真实问题中提升系统设计与调试能力。</li>
-        <li>保持长期学习和复盘习惯，逐步明确未来深造与职业发展方向。</li>
+        <li>持续推进ROBOCON、SRTP与嵌入式竞赛项目，把视觉算法、传感器融合和控制系统做得更稳定、更工程化。</li>
+        <li>系统补强数学基础、机器学习、机器人学与信号处理能力，为后续科研训练和研究生阶段学习打好基础。</li>
+        <li>保持长期记录与复盘习惯，沉淀可复用的代码、文档和项目方法，逐步明确未来深造与职业发展方向。</li>
       </ul>
+      <div class="summary-focus">
+        <div>
+          <h4>技术方向</h4>
+          <p>视觉感知、SLAM定位、机器人控制、嵌入式智能系统。</p>
+        </div>
+        <div>
+          <h4>能力建设</h4>
+          <p>强化系统设计、工程调试、团队协作与技术表达能力。</p>
+        </div>
+        <div>
+          <h4>成长目标</h4>
+          <p>在科研训练和真实项目中形成稳定、扎实、可迁移的工程素养。</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
