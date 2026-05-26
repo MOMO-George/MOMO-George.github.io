@@ -439,7 +439,7 @@ footer {
   <div class="hero-content fade-in">
     <div class="hero-avatar">
       <!-- 替换为你的照片 -->
-      <img src="guofeng.jpg" alt="个人照片">
+      <img src="image/郭峰.jpg" alt="个人照片">
     </div>
     <h1 class="hero-name">郭峰</h1>
     <p class="hero-subtitle">西南交通大学 · 信息科学与技术学院 · 通信工程专业 · 2023级本科生</p>
@@ -467,13 +467,18 @@ footer {
       <p>
         专业：通信工程<br>
         综合成绩：<strong>89.03</strong> / 100 &nbsp;|&nbsp; GPA：<strong>3.66</strong> / 4.0 &nbsp;|&nbsp; 排名：17 / 137 (<strong>12%</strong>)<br>
-        主修课程：计算机程序设计（理论95|实验93）嵌入式系统设计（理论87|实验93）模拟电子技术（理论86|实验100）微机与接口技术（92）DSP原理与应用（96）大学物理（99）信息论与编码（93）
+        主修课程：计算机程序设计（理论95|实验93）嵌入式系统设计（理论87|实验93）模拟电子技术（理论86|实验100）数据结构与算法（88）人工智能算法基础（96）线性代数（91）大学物理（99）微机与接口技术（92）电路分析（95）DSP原理与应用（96）信息论与编码（93）复变函数与积分变换（98）<br>
+        荣誉奖项：正在开展一项国家级SRTP项目（已立项）、全国大学生机器人大赛ROBOCON国奖（已入围全国赛）<br>
+        &emsp;&emsp;&emsp;&emsp;&emsp;已获得嵌入式设计与应用西南赛区二等奖、校一等奖学金（前3%）、三好学生（前10%）、优秀学生干部及优秀共青团员等荣誉
       </p>
     </div>
     <div class="timeline-item fade-in-left">
-      <h3>XX高中</h3>
-      <div class="time">20XX.09 - 20XX.06</div>
-      <p>高考成绩优异，理科综合排名前列</p>
+      <h3>仁寿一中南校区(四川省一级示范性高中)</h3>
+      <div class="time">2020.09 - 2023.06</div>
+      <p>
+        综合成绩：理科综合（物化生）总分274/300，高三稳居年级前5%<br>
+        荣誉奖项：全国高中物理竞赛眉山市一等奖、眉山市“用英语讲好中国故事”活动二等奖、优秀学生干部、学习标兵及进步之星等荣誉
+      </p>
     </div>
   </div>
 </section>
@@ -487,98 +492,65 @@ footer {
     <div class="project-card featured fade-in">
       <div class="project-media">
         <video controls preload="metadata">
-          <source src="project1-demo.mp4" type="video/mp4">
-          你的浏览器不支持视频播放。
+          <source src="video/项目一.mp4" type="video/mp4">
         </video>
       </div>
       <div class="project-body">
-        <h3>项目一：智能视觉感知系统</h3>
-        <p>围绕视觉识别与目标检测任务进行算法验证和工程部署，重点展示数据处理、模型训练、推理优化和实际场景测试过程。视频可放置系统运行演示、识别效果对比或最终成果展示。</p>
+        <h3>第二十五届全国机器人大赛ROBOCON</h3>
+        <p>
+          项目概要：围绕“武林探秘”主题，自主研发两台协同机器人，完成武器组件的取杆、取头、杆头组装、机械臂秘籍收集、双机合体抬升秘籍放置，进行场地藏宝对抗及井字棋竞技对决。<br>
+          核心贡献：主导视觉算法方案设计与系统联调，搭建基于ROS的机器人视觉感知系统。使用D435i深度相机与YOLO11实现武器和秘籍的实例分割与实时追踪，推理延时±35ms；
+          通过识别AprialTag码完成两台机器人的相对位姿解算：相对位置误差<2cm，角度误差<1°；融合MID360与M10_P双雷达点云数据，结合FAST-LIO2、Point-LIO，
+          利用RANSAC平面分割与PCL点云处理库，提取场地静态特征，实现机器人初定位：启动时位置误差±2cm；重定位：降低定位回环误差到3cm。<br>
+          相关成果支撑：作品已入围国赛，全力冲刺国一。
+        </p>
         <div class="project-tags">
-          <span>Python</span><span>PyTorch</span><span>OpenCV</span><span>模型部署</span>
-        </div>
-        <div class="project-links">
-          <a href="project1-demo.mp4">查看视频</a>
+          <span>国家级奖项</span><span>ROS架构</span><span>YOLO11</span><span>多模态融合</span><span>全自动机器人</span>
         </div>
       </div>
     </div>
 
+
     <!-- Project 2 -->
     <div class="project-card featured fade-in">
       <div class="project-media">
-        <video controls preload="metadata">
-          <source src="project2-demo.mp4" type="video/mp4">
-          你的浏览器不支持视频播放。
-        </video>
+          <img src="image/项目二.png" alt="项目二">
       </div>
       <div class="project-body">
-        <h3>项目二：机器人控制与调试平台</h3>
-        <p>面向机器人控制链路，完成运动控制、传感器数据读取、上位机调试和现场联调。视频可展示机器人动作响应、控制策略效果以及调试界面。</p>
+        <h3>面向发电厂灾后极端环境的并联足臂协同机器人勘测系统</h3>
+        <p>
+          项目概要：针对发电厂灾后非结构化地形复杂、跨步电压危险的痛点，研发并联四足自动机器人，支持<strong>高机动越障、多模态鲁棒感知、足臂协同精细干预</strong>，实现发电厂废墟环境中的高效、安全的无人化应急勘测。<br>
+          核心贡献：主导机器人全局感知系统开发，融合MID360雷达点云数据与D455相机彩色/深度信息，基于FAST-LIVO2完成建图、定位与导航：全局定位精度达±2cm，建图相对误差<1%。训练并部署YOLO11模型实现高危电气设备与
+          跨步电压风险源的目标检测，推理速度达30FPS，通过手眼标定完成机械臂坐标对齐，误差<±1cm，使用DT35激光测距模块进行优化提升精度至±3mm。<br>
+          相关成果支撑：已立项为国家级SRTP项目。
+        </p>
         <div class="project-tags">
-          <span>C/C++</span><span>ROS</span><span>运动控制</span><span>传感器融合</span>
-        </div>
-        <div class="project-links">
-          <a href="project2-demo.mp4">查看视频</a>
+          <span>国家级SRTP项目</span><span>多模态SLAM系统</span><span>视位协同一体化</span><span>四足机器人</span>
         </div>
       </div>
     </div>
+
 
     <!-- Project 3 -->
     <div class="project-card featured fade-in">
       <div class="project-media">
         <video controls preload="metadata">
-          <source src="project3-demo.mp4" type="video/mp4">
-          你的浏览器不支持视频播放。
+          <source src="video/机械臂自动分拣系统演示视频.mp4" type="video/mp4"
         </video>
-      </div>
-      <div class="project-body">
-        <h3>项目三：嵌入式功能模块设计</h3>
-        <p>基于嵌入式开发板完成外设驱动、通信协议、数据采集与功能验证，强调从硬件连接到软件逻辑的完整实现。视频可展示实物运行和关键功能测试。</p>
-        <div class="project-tags">
-          <span>STM32</span><span>嵌入式 C</span><span>串口通信</span><span>硬件调试</span>
-        </div>
-        <div class="project-links">
-          <a href="project3-demo.mp4">查看视频</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Project 4 -->
-    <div class="project-card featured fade-in">
-      <div class="project-media">
         <video controls preload="metadata">
-          <source src="project4-demo.mp4" type="video/mp4">
-          你的浏览器不支持视频播放。
+          <source src="video/K230电池检测.mp4" type="video/mp4"
         </video>
       </div>
       <div class="project-body">
-        <h3>项目四：数据分析与可视化工具</h3>
-        <p>完成数据采集、清洗、统计分析与结果可视化流程，用图表和交互界面呈现关键指标。视频可展示数据导入、分析过程和最终可视化结果。</p>
+        <h3>第八届全国大学生嵌入式芯片与系统设计竞赛</h3>
+        <p>
+          项目概要：针对传统人工分拣电池效率低、人力成本高的问题，开发基于STＭ32的六轴机械臂电池自动分拣系统，实现废旧电池的自动化、高精度分拣，助力环保产业升级。<br>
+          核心贡献：负责电池的检测、精准定位与路径规划。采用K230开发板(6TOPS算力)，通过模板匹配识别电池类型，识别准确率达92%，推理速度达21FPS；结合平滑滤波算法进行动态追踪和定位，
+          位置预测误差±1cm；通过仿射变换、手眼标定完成机械臂坐标对齐，坐标转换综合误差≤1cm；基于STM32H723VGT6单片机，运用运动学、逆运动学结算及PID控制算法，驱动机械臂完成分拣动作，平均响应时间100ms，抓取成功率达90%。<br>
+          项目结果：设计的六轴机械臂能自主识别、定位、分类分拣全流程自动化，参加嵌赛获西南赛区二等奖。
+        </p>
         <div class="project-tags">
-          <span>Python</span><span>数据处理</span><span>可视化</span><span>Web 展示</span>
-        </div>
-        <div class="project-links">
-          <a href="project4-demo.mp4">查看视频</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Project 5 -->
-    <div class="project-card featured fade-in">
-      <div class="project-media">
-        <video controls preload="metadata">
-          <source src="project5-demo.mp4" type="video/mp4">
-          你的浏览器不支持视频播放。
-        </video>
-      </div>
-      <div class="project-body">
-        <h3>项目五：课程设计与综合实践</h3>
-        <p>整合专业课程中的算法、通信、硬件或软件工程内容，完成需求分析、方案设计、实现测试和成果汇报。视频可展示设计结果、运行流程和答辩演示片段。</p>
-        <div class="project-tags">
-          <span>课程设计</span><span>系统实现</span><span>实验验证</span><span>成果展示</span>
-        </div>
-        <div class="project-links">
-          <a href="project5-demo.mp4">查看视频</a>
+          <span>省级二等奖</span><span>嵌入式设计</span><span>STM32H7</span><span>四轴机械臂</span>
         </div>
       </div>
     </div>
@@ -597,16 +569,16 @@ footer {
         <div class="skill-track"><div class="skill-fill" data-width="90"></div></div>
       </div>
       <div class="skill-bar">
-        <div class="skill-header"><span>C/C++</span><span class="pct">85%</span></div>
-        <div class="skill-track"><div class="skill-fill" data-width="85"></div></div>
+        <div class="skill-header"><span>C/C++</span><span class="pct">80%</span></div>
+        <div class="skill-track"><div class="skill-fill" data-width="80"></div></div>
       </div>
       <div class="skill-bar">
-        <div class="skill-header"><span>Java</span><span class="pct">75%</span></div>
-        <div class="skill-track"><div class="skill-fill" data-width="75"></div></div>
-      </div>
-      <div class="skill-bar">
-        <div class="skill-header"><span>JavaScript</span><span class="pct">70%</span></div>
+        <div class="skill-header"><span>Matlab</span><span class="pct">70%</span></div>
         <div class="skill-track"><div class="skill-fill" data-width="70"></div></div>
+      </div>
+      <div class="skill-bar">
+        <div class="skill-header"><span>Verilog</span><span class="pct">60%</span></div>
+        <div class="skill-track"><div class="skill-fill" data-width="60"></div></div>
       </div>
     </div>
 
@@ -662,7 +634,7 @@ footer {
   <h2 class="section-title fade-in">学生工作</h2>
   <div class="student-work-list">
     <div class="club-card glass-card fade-in-left">
-      <h3><span>&#129302;</span> 智能基座社团</h3>
+      <h3><span>&#129302;</span> 华为智能基座社团</h3>
       <div class="club-meta">技术实践 · 社团活动 · 团队协作</div>
       <p>围绕人工智能、嵌入式与机器人方向开展技术交流和实践活动，参与社团项目推进、成员协作与活动组织。</p>
       <div class="activity-grid">
@@ -749,17 +721,17 @@ footer {
     <div class="contact-card">
       <div class="contact-icon">QQ</div>
       <div class="contact-label">QQ</div>
-      <div class="contact-value">待补充</div>
+      <div class="contact-value">3119725262</div>
     </div>
     <div class="contact-card">
-      <div class="contact-icon">微</div>
+      <div class="contact-icon">WX</div>
       <div class="contact-label">微信</div>
-      <div class="contact-value">待补充</div>
+      <div class="contact-value">guo_feng2023</div>
     </div>
     <div class="contact-card">
       <div class="contact-icon">&#9742;</div>
-      <div class="contact-label">手机</div>
-      <div class="contact-value">待补充</div>
+      <div class="contact-label">电话</div>
+      <div class="contact-value">17781552016</div>
     </div>
   </div>
 </section>
